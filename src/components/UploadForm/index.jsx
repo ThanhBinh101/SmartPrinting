@@ -4,7 +4,7 @@ import InputInformation from "./InputInformation";
 const UploadForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.pages);
+    // console.log(e.target.pages);
   }
 
   return (

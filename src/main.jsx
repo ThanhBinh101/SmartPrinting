@@ -6,6 +6,7 @@ import UploadPage from "./pages/UploadPage.jsx";
 import RootLayout from "./components/RootLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import { AppProvider } from "./context/AppProvider.jsx";
+import PurchasePage from "./pages/PurchasePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path: "/upload",
         element: <UploadPage />,
       },
+      {
+        path: "/purchase",
+        element: <PurchasePage/>
+      }
     ],
   },
 ]);

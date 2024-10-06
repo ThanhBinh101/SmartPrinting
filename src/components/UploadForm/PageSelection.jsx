@@ -1,7 +1,36 @@
+/* eslint-disable react/prop-types */
+import { useAppContext } from "../../hooks/useAppContext";
+
 const PageSelection = ({ state, setState }) => {
+  const {
+    rangeSelectionStartPage,
+    setRangeSelectionStartPage,
+    rangeSelectionEndPage,
+    setRangeSelectionEndPage,
+    selection,
+    setSelection,
+  } = useAppContext();
+
   const handleClickCheckBox = (e) => {
     setState(e.target.value);
   };
+
+  const handleRangeInput = (e) => {
+    if (e.target.name === "range-start") {
+      setRangeSelectionStartPage(e.target.value);
+    } else if (e.target.name === "range-end") {
+      setRangeSelectionEndPage(e.target.value);
+    }
+  };
+
+  const handleSelectionInput = (e) => {
+    let value = e.target.value;
+    value = value.replaceAll(" ", "");
+    const selectionArray = value.split(",");
+    setSelection(selectionArray);
+  };
+
+  const selectionValue = selection.length > 0 ? selection.join(",") : "";
 
   return (
     <div className="flex">
@@ -39,15 +68,21 @@ const PageSelection = ({ state, setState }) => {
               <input
                 className="w-[60px] rounded-[16px] border-[1px] border-secondary bg-thirdary p-2"
                 type="number"
-                name=""
+                name="range-start"
+                value={rangeSelectionStartPage}
                 id=""
+                onChange={handleRangeInput}
+                min={0}
               />
               to
               <input
                 className="w-[60px] rounded-[16px] border-[1px] border-secondary bg-thirdary p-2"
                 type="number"
-                name=""
+                name="range-end"
+                value={rangeSelectionEndPage}
                 id=""
+                onChange={handleRangeInput}
+                min={0}
               />
             </div>
           ) : (
@@ -72,6 +107,8 @@ const PageSelection = ({ state, setState }) => {
               <input
                 type="text"
                 className="w-full rounded-[16px] border-[1px] border-secondary bg-thirdary p-2"
+                onChange={handleSelectionInput}
+                value={selectionValue}
               />
             </div>
           ) : (

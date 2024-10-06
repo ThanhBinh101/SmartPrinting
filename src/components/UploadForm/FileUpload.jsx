@@ -4,19 +4,40 @@ import { IoCloudUploadOutline } from "react-icons/io5";
 import { FaRegFolderOpen } from "react-icons/fa";
 import { useAppContext } from "../../hooks/useAppContext";
 import { FaRegFileAlt } from "react-icons/fa";
+import { WARNING_FILE } from "../../libs/constant";
 
 const FileUpload = () => {
-  const { fileUpload, setFileUpload } = useAppContext();
+  const {
+    fileUpload,
+    setFileUpload,
+    setIsOpenPopup,
+    setPopupType,
+    setPopupMessage,
+  } = useAppContext();
+
   const onDrop = useCallback(
     (acceptedFiles) => {
-      // Do something with the files
-      const filenameExt = acceptedFiles[0].name.split(".").pop();
-      acceptedFiles[0].filenameExt = filenameExt;
-      setFileUpload(acceptedFiles[0]);
+      if (acceptedFiles.length > 0) {
+        // Do something with the files
+        const filenameExt = acceptedFiles[0].name.split(".").pop();
+        acceptedFiles[0].filenameExt = filenameExt;
+        setFileUpload(acceptedFiles[0]);
+      } else {
+        // Popup Error
+        setIsOpenPopup(true);
+        setPopupType("error");
+        setPopupMessage(WARNING_FILE);
+      }
     },
     [setFileUpload],
   );
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    // Config accept file
+    accept: {
+      "image/png": [".png"],
+    },
+  });
 
   return (
     <div className="flex-1">
@@ -35,8 +56,8 @@ const FileUpload = () => {
             <div className="flex flex-col items-center justify-center">
               {fileUpload ? (
                 <>
-                  <FaRegFileAlt className="text-[80px] text-secondary"/>
-                  <div className="mt-6 italic text-[25px]">
+                  <FaRegFileAlt className="text-[80px] text-secondary" />
+                  <div className="mt-6 text-[25px] italic">
                     {fileUpload.name}
                   </div>
                 </>

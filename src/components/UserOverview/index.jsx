@@ -1,21 +1,24 @@
+import { useAppContext } from "../../hooks/useAppContext";
 import WaitPrintingTable from "../WaitPrintingTable";
 import UserAvatar from "./UserAvatar";
 import UserOverviewButtonList from "./UserOverviewButtonList";
 import UserRefillAnnoucement from "./UserRefillAnnoucement";
 
 const UserOverview = () => {
+  const { availablePaper } = useAppContext();
+
   return (
-    <div className="mt-[80px] flex justify-center items-center">
-      <div className="w-[1454px] bg-thirdary p-[45px] rounded-[25px] flex justify-between gap-[100px] mb-[120px]">
+    <div className="mt-[80px] flex items-center justify-center">
+      <div className="mb-[120px] flex w-[1454px] justify-between gap-[100px] rounded-[25px] bg-thirdary p-[45px]">
         <UserAvatar
           imageUrl={"/user-logo-big.svg"}
           username={"Nguyễn Thanh Bình"}
           userId={"2252083"}
         />
 
-        <div className="flex-1 text-[28px] flex flex-col justify-between">
+        <div className="flex flex-1 flex-col justify-between text-[28px]">
           <h3 className="font-bold">
-            Page(s) available: <span className="text-secondary">10</span>
+            Page(s) available: <span className="text-secondary">{availablePaper}</span>
           </h3>
 
           <WaitPrintingTable />

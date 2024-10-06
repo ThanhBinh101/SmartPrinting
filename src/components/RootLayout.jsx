@@ -1,14 +1,19 @@
-import { Outlet } from "react-router-dom"
-import Header from "./Header"
-import Footer from "./Footer"
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import Popup from "./Popup";
+import { useAppContext } from "../hooks/useAppContext";
 
 const RootLayout = () => {
+  const { isOpenPopup } = useAppContext();
+
   return (
     <>
-      <Header/>
-      <Outlet/>
-      <Footer/>
+      {isOpenPopup && <Popup />}
+      <Header />
+      <Outlet />
+      <Footer />
     </>
-  )
-}
-export default RootLayout
+  );
+};
+export default RootLayout;

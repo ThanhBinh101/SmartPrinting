@@ -8,8 +8,10 @@ import Input from "./Input";
 import InputRadio from "./InputRadio";
 import PageSelection from "./PageSelection";
 import { useAppContext } from "../../hooks/useAppContext";
+import { useNavigate } from "react-router-dom";
 
 const InputInformation = () => {
+  const navigate = useNavigate();
   const {
     pagesSelection,
     setPagesSelection,
@@ -53,6 +55,7 @@ const InputInformation = () => {
             title="Cancel"
             textColor={"secondary"}
             backgroundColor={"thirdary"}
+            onClickFunction={() => navigate("/")}
           />
           <Button
             type="submit"
