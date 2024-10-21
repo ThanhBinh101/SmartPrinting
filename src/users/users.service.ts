@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { student } from 'src/schemas/user.schema'; // Assuming 'Author' is your schema
-import { userDTO } from './dtos/user.dto'; // Correct casing
+import { student } from 'src/schemas/user.schema'; 
+import { userDTO } from './dtos/user.dto'; 
 import { userloginDTO } from './dtos/userLogin.dto';
 import { promises } from 'dns';
 import * as bcrypt from 'bcrypt';
@@ -28,8 +28,8 @@ export class UsersService {
             age: user.age,
             address: user.address,
         });
-        console.log(newUser); // Logs the user object
-        await newUser.save(); // Saves the new user to MongoDB
+        console.log(newUser); 
+        await newUser.save(); 
         return newUser;
     }
     async login(userlogin: userloginDTO) {
