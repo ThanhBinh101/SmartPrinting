@@ -102,7 +102,7 @@ export const PRINT_HISTORY_TABLE_TITLE = [
 ];
 
 export const PURCHASE_HISTORY_TITLE = ["Date", "Number of Papers", "Total"];
-export const PRINTER_MANAGEMENT_TITLE = ["Printer ID", "Position", "Next Maintain day", "Available Paper", ""];
+export const PRINTER_MANAGEMENT_TITLE = ["Printer ID", "Location", "Paper","Status", ""];
 
 
 export const ALLOWED_FILE_TYPE = [

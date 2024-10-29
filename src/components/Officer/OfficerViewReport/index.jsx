@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import ExportButton from "./ExportButton";
+
+import PrinterViewReportButton from "./PrinterViewReportButton";
+import PrinterRefillPaperButton from './PrinterRefillPaperButton';
+import PrinterMaintainButton from "./PrinterMaintainButton";
+import PrinterList from "./PrinterList"
 import Table from "../Table";
 
 const ViewReport = () => {
@@ -83,8 +88,45 @@ const ViewReport = () => {
         </div>
       </div>
 
-      <div className="flex ml-[150px] mt-[30px] w-full h-full"> 
-      <div className =" w-[900px]"> 
+      <div className="flex ml-[40px] mr-[50px] mt-[30px] w-full h-full"> 
+          <div className=" mt-[20px]">
+            <span className="text-[18px] font-inter font-semibold"> Printer List</span>
+            <div className="mt-[30px] w-[170px] h-[500px]">
+              <PrinterList />
+            </div>
+          </div>
+          <div className="ml-[50px] mt-[30px] mr-[30px] "> 
+                <div className="w-[381px] h-[669px] bg-[#FFEEE8] mt-[20px] rounded-[30px] flex justify-center border-2 border-[#A68BC1]">
+                    <div className="mt-[50px]"> 
+                        <div className="text-2xl font-bold mb-[20px]">
+                            <span className="underline">Location:</span> <span className="text-[#A68BC1]"> 305B1</span>
+                        </div>
+                        <div className="text-2xl font-bold mb-[20px]">
+                            <span className="underline">Next maintain day:</span> <span className="text-[#A68BC1]"> Jan 10th</span>
+                        </div>
+                        <div className="text-2xl font-bold mb-[20px]">
+                            <span className="underline">Available paper:</span> <span className="text-[#A68BC1]"> 100</span>
+                        </div>
+                        <div className="text-2xl font-bold mb-[20px]">
+                            <span className="underline">Status:</span> <span className="text-[#A68BC1]"> On</span>
+                        </div>
+                        <div className="mt-[150px] mb-[50px]">
+                          <div className="flex flex-col items-center w-full"> 
+                              <div className="bg-[#97D99D] text-xl rounded-[25px] mt-[25px] w-[245px] flex items-center justify-center h-[52px]"> 
+                                  <PrinterRefillPaperButton />
+                              </div>
+                              <div className="bg-[#FEC8D8] text-xl rounded-[25px] mt-[25px] w-[245px] flex items-center justify-center h-[52px]"> 
+                                  <PrinterMaintainButton />
+                              </div>
+                              <div className="bg-[#A68BC1] text-xl rounded-[25px] mt-[25px] w-[245px] flex items-center justify-center h-[52px]"> 
+                                  <PrinterViewReportButton />
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <div className =" w-[850px]"> 
           <Table  
             title={<span className="text-lg font-semibold">{`Printer History`}</span>} 
             tableCol={["Date", "Finish Day", "File", "Student", "Number of Paper"]} 
@@ -111,12 +153,12 @@ const ViewReport = () => {
             bgColor={'#F7BCD633'}
             titleColor={'black'}
             rowTextColor={'#A68BC1'}
-            maxHeight="686px"
+            maxHeight="586px"
           /> 
         </div>
         
-        <div className="ml-[100px] mr-[150px] h-full"> 
-          <div className="w-[500px] h-[278px]">
+        <div className="ml-[30px] h-full"> 
+          <div className="w-[400px] h-[278px]">
             <Table
               className="p-3"
               title={<span className="text-lg font-semibold">{`Maintain History`}</span>} 
@@ -138,10 +180,10 @@ const ViewReport = () => {
               bgColor={'white'} 
               titleColor={'black'}
               rowTextColor={'#A68BC1'}
-              maxHeight="278px"
+              maxHeight="228px"
             />
           </div>
-          <div className="mt-[130px] mb-[100px] w-[500px] h-[278px]">
+          <div className="mt-[80px] mb-[100px] w-[400px] h-[278px]">
             <Table
               className="p-3"
               title={<span className="text-lg font-semibold">{`Refill History`}</span>} 
@@ -166,7 +208,7 @@ const ViewReport = () => {
               bgColor="#FFEEE8"
               titleColor={'black'}
               rowTextColor={'#A68BC1'}
-              maxHeight={"278px"}
+              maxHeight={"228px"}
             />
           </div>
         </div>
