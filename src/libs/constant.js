@@ -19,6 +19,62 @@ export const BUTTON_USER_OVERVIEW = [
   },
 ];
 
+export const BUTTON_CHOOSE_STUDENT =[
+  {
+    title: "Student",
+    backgroundColor:"primary",
+    textColor:"black"
+  }
+]
+export const BUTTON_CHOOSE_OFFICER = [{
+  title:"Officer",
+  backgroundColor: "primary",
+  textColor: "black"
+}]
+
+export const BUTTON_EXPORT =[{
+  title:"Export",
+  backgroundColor:"primary",
+  textColor:"white"
+}]
+export const BUTTON_MAINTAIN = [{
+  title: "Maintain",
+  backgroundColor: "primary",
+  textColor: "#957DAD",
+}] 
+
+export const BUTTON_REFILL_PAPER = [
+  {
+    title: "Refill paper",
+    backgroundColor: "primary",
+    textColor:"white"
+  }
+]
+
+export const BUTTON_VIEW_REPORT = [
+  {
+    title:"View report",
+    backgroundColor: "primary",
+    textColor: "white"
+  }
+]
+
+export const BUTTON_CANCEL = [
+  {
+    title: "Cancel",
+    backgroundColor:"primary",
+    textColor: "#957DAD"
+  }
+]
+
+export const BUTTON_APPLY_CHANGES = [
+  {
+    title: "Apply changes",
+    backgroundColor:"primary",
+    textColor:"white"
+  }
+]
+
 export const WAITING_PRINTING_DOCUMENTS = [
   {
     id: 1,
@@ -49,6 +105,8 @@ export const PRINT_HISTORY_TABLE_TITLE = [
 ];
 
 export const PURCHASE_HISTORY_TITLE = ["Date", "Number of Papers", "Total"];
+export const PRINTER_MANAGEMENT_TITLE = ["Printer ID", "Position", "Next Maintain day", "Available Paper", ""];
+
 
 export const ALLOWED_FILE_TYPE = [
   {
