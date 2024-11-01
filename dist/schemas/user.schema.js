@@ -9,45 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userSchema = exports.student = void 0;
+exports.StudentSchema = exports.Student = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-let student = class student {
+const mongoose_2 = require("mongoose");
+let Student = class Student extends mongoose_2.Document {
 };
-exports.student = student;
+exports.Student = Student;
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], student.prototype, "fullname", void 0);
+], Student.prototype, "fullname", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], student.prototype, "username", void 0);
+], Student.prototype, "username", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], student.prototype, "password", void 0);
+], Student.prototype, "password", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], student.prototype, "stud_id", void 0);
+], Student.prototype, "stud_id", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], student.prototype, "email", void 0);
+], Student.prototype, "email", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], student.prototype, "faculty", void 0);
+], Student.prototype, "faculty", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", Number)
-], student.prototype, "age", void 0);
+    (0, mongoose_1.Prop)([{ date: Date, printerID: String, pages: Number }]),
+    __metadata("design:type", Array)
+], Student.prototype, "printHistory", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], student.prototype, "address", void 0);
-exports.student = student = __decorate([
+    (0, mongoose_1.Prop)([{ date: Date, amount: Number }]),
+    __metadata("design:type", Array)
+], Student.prototype, "paymentHistory", void 0);
+exports.Student = Student = __decorate([
     (0, mongoose_1.Schema)()
-], student);
-exports.userSchema = mongoose_1.SchemaFactory.createForClass(student);
+], Student);
+exports.StudentSchema = mongoose_1.SchemaFactory.createForClass(Student);
 //# sourceMappingURL=user.schema.js.map

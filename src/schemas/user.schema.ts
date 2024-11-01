@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { ArgumentOutOfRangeError } from "rxjs";
+import { Document } from "mongoose";
 
 @Schema()
-export class student{
+export class Student extends Document {
     @Prop()
     fullname: string;
     
@@ -21,11 +21,11 @@ export class student{
     @Prop()
     faculty: string;
 
-    @Prop()
-    age: number;
+    @Prop([{ date: Date, printerID: String, pages: Number }])
+    printHistory: { date: Date; printerID: string; pages: number }[];
 
-    @Prop()
-    address: string;
+    @Prop([{ date: Date, amount: Number }])
+    paymentHistory: { date: Date; amount: number }[];
 }
 
-export const userSchema = SchemaFactory.createForClass(student);
+export const StudentSchema = SchemaFactory.createForClass(Student);

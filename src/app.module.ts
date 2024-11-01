@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
+import { ReportModule } from './report/report.module';
 import mongoose from 'mongoose';
 
 @Module({
@@ -10,7 +11,7 @@ import mongoose from 'mongoose';
     authSource: "admin",
         user:"tuanemtramtinh",
         pass:"TuanAnh_0908"
-  }), UsersModule],
+  }), UsersModule, ReportModule],
   controllers: [AppController],
   providers: [AppService],
 })

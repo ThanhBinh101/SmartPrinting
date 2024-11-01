@@ -17,37 +17,71 @@ const common_1 = require("@nestjs/common");
 const user_dto_1 = require("./dtos/user.dto");
 const users_service_1 = require("./users.service");
 const userLogin_dto_1 = require("./dtos/userLogin.dto");
+const swagger_1 = require("@nestjs/swagger");
 let UsersController = class UsersController {
     constructor(userService) {
         this.userService = userService;
     }
     async createUser(user) {
-        console.log(user.email);
-        console.log(user.password);
-        return this.userService.createUser(user);
+        try {
+            return this.userService.createUser(user);
+        }
+        catch (error) {
+            console.error('Error creating user:', error.message);
+            throw new common_1.HttpException('Failed to register user', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     async login(userLogin) {
-        console.log(userLogin);
-        return await this.userService.login(userLogin);
+        try {
+            const token = await this.userService.login(userLogin);
+            if (!token) {
+                throw new common_1.HttpException('Invalid credentials', common_1.HttpStatus.UNAUTHORIZED);
+            }
+            return token;
+        }
+        catch (error) {
+            console.error('Error logging in user:', error.message);
+            throw new common_1.HttpException('Login failed', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-    ;
+    async getUser(userID) {
+        return this.userService.getUser(userID);
+    }
+    async getStudentID(userID) {
+        return this.userService.getStudentID(userID);
+    }
 };
 exports.UsersController = UsersController;
 __decorate([
     (0, common_1.Post)('/register'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_dto_1.userDTO]),
+    __metadata("design:paramtypes", [user_dto_1.StudentDTO]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "createUser", null);
 __decorate([
-    (0, common_1.Post)('login'),
+    (0, common_1.Post)('/login'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [userLogin_dto_1.userloginDTO]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "login", null);
+__decorate([
+    (0, common_1.Get)('/getUser/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "getUser", null);
+__decorate([
+    (0, common_1.Get)('/getStudentID/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "getStudentID", null);
 exports.UsersController = UsersController = __decorate([
+    (0, swagger_1.ApiTags)('Users'),
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);

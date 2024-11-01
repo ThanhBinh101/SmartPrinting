@@ -1,20 +1,47 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { userDTO } from './dtos/user.dto';
+import { Body, Controller, Post,Get, HttpException, HttpStatus, Param } from '@nestjs/common';
+import { StudentDTO } from './dtos/user.dto';
 import { UsersService } from './users.service';
 import { userloginDTO } from './dtos/userLogin.dto';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
-    constructor(private userService: UsersService){}
+    constructor(private readonly userService: UsersService) {}
+
     @Post('/register')
-    async createUser(@Body() user: userDTO){
-        console.log(user.email);
-        console.log(user.password);
-        return this.userService.createUser(user);
+    async createUser(@Body() user: StudentDTO) {
+        try {
+            return this.userService.createUser(user);
+        } catch (error) {
+            console.error('Error creating user:', error.message);
+            throw new HttpException('Failed to register user', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-    @Post('login')
-    async login(@Body() userLogin: userloginDTO){
-        console.log(userLogin);
-        return await this.userService.login(userLogin);
-    };
+
+    @Post('/login')
+    async login(@Body() userLogin: userloginDTO) {
+        try {
+            const token = await this.userService.login(userLogin);
+            if (!token) {
+                throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
+            }
+            return token;
+        } catch (error) {
+            console.error('Error logging in user:', error.message);
+            throw new HttpException('Login failed', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @Get('/getUser/:id')
+    async getUser(
+        @Param('id') userID: string
+    ){
+        return this.userService.getUser(userID);
+    }
+    @Get('/getStudentID/:id')
+    async getStudentID(
+        @Param('id') userID: string
+    ){
+        return this.userService.getStudentID(userID);
+    }
 }

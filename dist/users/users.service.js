@@ -19,44 +19,51 @@ const mongoose_2 = require("mongoose");
 const user_schema_1 = require("../schemas/user.schema");
 const bcrypt = require("bcrypt");
 let UsersService = class UsersService {
-    constructor(authorModel) {
-        this.authorModel = authorModel;
+    constructor(studentModel) {
+        this.studentModel = studentModel;
     }
     async createUser(user) {
-        const User = new this.authorModel(user);
-        const salt = await bcrypt.genSalt(15);
-        const hashedPassword = await bcrypt.hash(user.password, salt);
-        console.log(hashedPassword);
-        const newUser = await this.authorModel.create({
-            fullname: user.fullname,
-            username: user.username,
+        const existingUser = await this.studentModel.findOne({ email: user.email }).exec();
+        if (existingUser) {
+            throw new common_1.ConflictException('User with this email already exists');
+        }
+        const saltRounds = 15;
+        const hashedPassword = await bcrypt.hash(user.password, saltRounds);
+        const newUser = new this.studentModel({
+            ...user,
             password: hashedPassword,
-            stud_id: user.stud_id,
-            email: user.email,
-            faculty: user.faculty,
-            age: user.age,
-            address: user.address,
         });
-        console.log(newUser);
-        await newUser.save();
-        return newUser;
+        return newUser.save();
     }
-    async login(userlogin) {
-        const User = await this.authorModel.findOne({ email: userlogin.email }).exec();
-        if (!User) {
+    async login(userLogin) {
+        const user = await this.studentModel.findOne({ email: userLogin.email }).exec();
+        if (!user) {
             throw new common_1.NotFoundException('User not found');
         }
-        const match = await bcrypt.compare(userlogin.password, User.password);
-        if (!match) {
-            throw new common_1.NotFoundException('password is not correct');
+        const passwordMatches = await bcrypt.compare(userLogin.password, user.password);
+        if (!passwordMatches) {
+            throw new common_1.UnauthorizedException('Incorrect password');
         }
-        return User;
+        return {
+            message: 'Login successful',
+            user,
+        };
+    }
+    async getUser(userID) {
+        const currentUser = await this.studentModel.findById(userID);
+        return currentUser;
+    }
+    async getStudentID(userID) {
+        const currentUser = await this.studentModel.findById(userID);
+        const stuID = currentUser.stud_id;
+        console.log(stuID);
+        return stuID;
     }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(user_schema_1.student.name)),
+    __param(0, (0, mongoose_1.InjectModel)(user_schema_1.Student.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], UsersService);
 //# sourceMappingURL=users.service.js.map

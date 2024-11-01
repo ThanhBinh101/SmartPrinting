@@ -9,49 +9,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userDTO = void 0;
+exports.StudentDTO = void 0;
 const class_validator_1 = require("class-validator");
-class userDTO {
+const class_transformer_1 = require("class-transformer");
+class PrintHistoryDTO {
 }
-exports.userDTO = userDTO;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], userDTO.prototype, "username", void 0);
+], PrintHistoryDTO.prototype, "printerID", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], userDTO.prototype, "password", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], userDTO.prototype, "stud_id", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], userDTO.prototype, "email", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], userDTO.prototype, "fullname", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], userDTO.prototype, "faculty", void 0);
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
+], PrintHistoryDTO.prototype, "date", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsNumber)(),
     __metadata("design:type", Number)
-], userDTO.prototype, "age", void 0);
+], PrintHistoryDTO.prototype, "pages", void 0);
+class PaymentHistoryDTO {
+}
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
+], PaymentHistoryDTO.prototype, "date", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Number)
+], PaymentHistoryDTO.prototype, "amount", void 0);
+class StudentDTO {
+}
+exports.StudentDTO = StudentDTO;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], userDTO.prototype, "address", void 0);
+], StudentDTO.prototype, "username", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], StudentDTO.prototype, "password", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], StudentDTO.prototype, "stud_id", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], StudentDTO.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], StudentDTO.prototype, "fullname", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], StudentDTO.prototype, "faculty", void 0);
+__decorate([
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => PrintHistoryDTO),
+    __metadata("design:type", Array)
+], StudentDTO.prototype, "printHistory", void 0);
+__decorate([
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => PaymentHistoryDTO),
+    __metadata("design:type", Array)
+], StudentDTO.prototype, "paymentHistory", void 0);
 //# sourceMappingURL=user.dto.js.map
