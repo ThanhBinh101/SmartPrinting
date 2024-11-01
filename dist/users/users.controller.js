@@ -44,11 +44,11 @@ let UsersController = class UsersController {
             throw new common_1.HttpException('Login failed', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    async getUser(userID) {
-        return this.userService.getUser(userID);
+    async getUser(id) {
+        return this.userService.getUser(id);
     }
-    async getStudentID(userID) {
-        return this.userService.getStudentID(userID);
+    async getStudentID(id) {
+        return this.userService.getStudentID(id);
     }
 };
 exports.UsersController = UsersController;

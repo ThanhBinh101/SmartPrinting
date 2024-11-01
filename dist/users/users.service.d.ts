@@ -10,6 +10,10 @@ export declare class UsersService {
         message: string;
         user: Student;
     }>;
-    getUser(userID: string): Promise<Student>;
+    getUser(userID: string): Promise<import("mongoose").Document<unknown, {}, Student> & Student & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
     getStudentID(userID: string): Promise<string>;
 }

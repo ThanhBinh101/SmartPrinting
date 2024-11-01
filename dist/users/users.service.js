@@ -33,7 +33,9 @@ let UsersService = class UsersService {
             ...user,
             password: hashedPassword,
         });
-        return newUser.save();
+        console.log(newUser);
+        await newUser.save();
+        return newUser;
     }
     async login(userLogin) {
         const user = await this.studentModel.findOne({ email: userLogin.email }).exec();
@@ -50,7 +52,8 @@ let UsersService = class UsersService {
         };
     }
     async getUser(userID) {
-        const currentUser = await this.studentModel.findById(userID);
+        const id = new mongoose_2.Types.ObjectId(userID);
+        const currentUser = await this.studentModel.findById(id);
         return currentUser;
     }
     async getStudentID(userID) {

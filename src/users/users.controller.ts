@@ -3,6 +3,7 @@ import { StudentDTO } from './dtos/user.dto';
 import { UsersService } from './users.service';
 import { userloginDTO } from './dtos/userLogin.dto';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Student } from 'src/schemas/user.schema';
 
 @ApiTags('Users')
 @Controller('users')
@@ -34,14 +35,14 @@ export class UsersController {
     }
     @Get('/getUser/:id')
     async getUser(
-        @Param('id') userID: string
-    ){
-        return this.userService.getUser(userID);
+        @Param('id') id: string
+    ) {
+        return this.userService.getUser(id);
     }
     @Get('/getStudentID/:id')
     async getStudentID(
-        @Param('id') userID: string
+        @Param('id') id: string
     ){
-        return this.userService.getStudentID(userID);
+        return this.userService.getStudentID(id);
     }
 }
