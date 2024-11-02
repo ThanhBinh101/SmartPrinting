@@ -12,6 +12,7 @@ import OfficerReport from "./pages/OfficerReport.jsx"
 import HomePage from "./pages/HomePage.jsx";
 import { AppProvider } from "./context/AppProvider.jsx";
 import PurchasePage from "./pages/PurchasePage.jsx";
+import Login from "./pages/Login.jsx"
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <OfficerReport />,
+        element: <Login />,
       },
       {
         path: "/upload",
