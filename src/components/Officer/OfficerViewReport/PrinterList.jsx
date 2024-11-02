@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-const PrinterList = () => {
-  const printerNames = ["306B1.1", "306B1.2", "306B1.3", "306B1.4", "306B1.5", "306B1.6", "306B1.7","306B1.8","306B1.9","306B1.10","306B1.11"];
+const PrinterList = ({ onSelectPrinter }) => {
+  const printerNames = ["306B1.1", "306B1.2", "306B1.3", "306B1.4", "306B1.5", "306B1.6", "306B1.7", "306B1.8", "306B1.9", "306B1.10", "306B1.11"];
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
   const handleSelect = (printerName) => {
     setSelectedPrinter(printerName);
+    onSelectPrinter(printerName); 
   };
 
   return (

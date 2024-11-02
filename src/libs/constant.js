@@ -47,7 +47,13 @@ export const BUTTON_REFILL_PAPER = [
     textColor:"white"
   }
 ]
-
+export const BUTTON_TURNOFF_PRINTER = [
+  {
+    title: "Turn off printer",
+    backgroundColor:"primary",
+    textColor: "white"
+  }
+]
 export const BUTTON_VIEW_REPORT = [
   {
     title:"View report",

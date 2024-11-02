@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DeletePrinter from "../../../PopUp/DeletePrinter"
 
 const List = () => {
   const names = [
@@ -30,6 +31,8 @@ const List = () => {
 
   const [selectedName, setSelectedName] = useState("2345678");
   const [selectedPrinter, setSelectedPrinter] = useState("Printer A1");
+  const [deleteModalShow, setDeleteModalShow] = useState(false);
+  const [printerToDelete, setPrinterToDelete] = useState("");
 
   const handleSelect = (name) => {
     setSelectedName((prevSelected) => (prevSelected === name ? null : name));
@@ -38,6 +41,21 @@ const List = () => {
 
   const handleSelectPrinter = (printer) => {
     setSelectedPrinter((prevSelected) => (prevSelected === printer ? null : printer));
+  };
+
+  const handleDeleteClick = (printer) => {
+    setPrinterToDelete(printer);
+    setDeleteModalShow(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    console.log(`Deleted printer: ${printerToDelete}`);
+    setDeleteModalShow(false);
+    // Additional logic to handle printer deletion can be added here
+  };
+
+  const handleDeleteCancel = () => {
+    setDeleteModalShow(false);
   };
 
   return (
@@ -62,35 +80,48 @@ const List = () => {
 
       <div className="space-y-[5px] max-h-[500px] overflow-y-auto w-[170px]">
         {selectedName && (
-            <>
+          <>
             {printerData[selectedName].map((printer, printerIndex) => (
-                <div key={printerIndex}>
+              <div key={printerIndex}>
                 <div
-                    className={`flex items-center space-x-2 cursor-pointer w-full text-[18px] h-[60px] rounded-tl-[8px] rounded-bl-[8px] rounded-tr-[30px] rounded-br-[30px] ${
+                  className={`flex items-center space-x-2 cursor-pointer w-full text-[18px] h-[60px] rounded-tl-[8px] rounded-bl-[8px] rounded-tr-[30px] rounded-br-[30px] ${
                     selectedPrinter === printer ? 'bg-[#F7BCD633] text-[#A68BC1] font-bold' : 'text-black font-bold hover:bg-[#A68BC133] hover:text-black'
-                    }`}
-                    onClick={() => handleSelectPrinter(printer)}
+                  }`}
+                  onClick={() => handleSelectPrinter(printer)}
                 >
-                    <span className="ml-[10px]">{printer}</span>
-                    <img
-                    src={selectedPrinter === printer ? "/Close_round_fill_selected.svg" : "/Close_round_fill.svg"} 
+                  <span className="ml-[10px]">{printer}</span>
+                  <img
+                    src={selectedPrinter === printer ? "/Close_round_fill_selected.svg" : "/Close_round_fill.svg"}
                     alt="Close"
                     style={{
-                        width: '24px',
-                        height: '24px',
-                        marginLeft: 'auto',
-                        marginRight: '30px', 
+                      width: '24px',
+                      height: '24px',
+                      marginLeft: 'auto',
+                      marginRight: '30px',
                     }}
-                    />
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent triggering the printer selection
+                      handleDeleteClick(printer); // Show delete modal
+                    }}
+                  />
                 </div>
                 {printerIndex < printerData[selectedName].length - 1 && (
-                    <hr className="border-t border-[#F7BCD6] mt-[5px] w-[147px]" />
+                  <hr className="border-t border-[#F7BCD6] mt-[5px] w-[147px]" />
                 )}
-                </div>
+              </div>
             ))}
-            </>
+          </>
         )}
-        </div>
+      </div>
+
+      {/* DeletePrinter Modal */}
+      {deleteModalShow && (
+        <DeletePrinter
+          show={deleteModalShow}
+          onClose={handleDeleteCancel}
+          printerCode={printerToDelete} // Pass the printer code to be displayed
+        />
+      )}
     </div>
   );
 };

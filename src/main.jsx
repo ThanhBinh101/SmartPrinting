@@ -10,7 +10,6 @@ import RootLayout from "./components/RootLayout.jsx";
 import OfficerReport from "./pages/OfficerReport.jsx"
 import HomePage from "./pages/HomePage.jsx";
 import { AppProvider } from "./context/AppProvider.jsx";
-
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
