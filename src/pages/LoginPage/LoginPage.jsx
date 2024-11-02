@@ -11,7 +11,7 @@ function Login() {
     }
 
   return (
-    <div className="flex items-center justify-center  h-[792px]">    
+    <body className="flex items-center justify-center">
         <div className="flex w-[1454px] h-[660px] justify-between rounded-[25px] bg-thirdary p-[45px]">
             <img src="/logo-school.png" alt="" className="h-[340px] flex-none mx-auto my-auto pl-[100px]"/>
             <div className="flex-auto flex flex-col items-center justify-center">
@@ -34,7 +34,7 @@ function Login() {
                 </div>
             </div>
         </div>
-    </div>
+    </body>
   );
 }
 export default Login;

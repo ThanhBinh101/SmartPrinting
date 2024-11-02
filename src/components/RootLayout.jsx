@@ -8,12 +8,15 @@ const RootLayout = () => {
   const { isOpenPopup } = useAppContext();
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       {isOpenPopup && <Popup />}
+      
       <Header />
-      <Outlet />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 export default RootLayout;
