@@ -10,6 +10,7 @@ const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {isOpenPopup && <Popup />}
+      
       <Header />
       <main className="flex-grow">
         <Outlet />
