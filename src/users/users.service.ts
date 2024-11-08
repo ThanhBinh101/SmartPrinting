@@ -5,10 +5,13 @@ import { Student} from 'src/schemas/user.schema';
 import { StudentDTO } from './dtos/user.dto'; 
 import { userloginDTO } from './dtos/userLogin.dto';
 import * as bcrypt from 'bcrypt';
+import { PrinterDTO } from '../report/dtos/printer.dto';
+import { Printer } from 'src/schemas/printer.schema';
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectModel(Student.name) private readonly studentModel: Model<Student>) {}
+    constructor(@InjectModel(Student.name) private readonly studentModel: Model<Student>,
+) {}
 
     async createUser(user: StudentDTO): Promise<Student> {
         const existingUser = await this.studentModel.findOne({ email: user.email }).exec();
@@ -47,7 +50,6 @@ export class UsersService {
     }
     async getUser(userID: string){
         const id = new Types.ObjectId(userID);
-        // console.log(id)
         const currentUser = await this.studentModel.findById(id);
         return currentUser;
     }
@@ -57,4 +59,7 @@ export class UsersService {
         console.log(stuID);
         return stuID;
     }
+    // async addPrinter(printer: PrinterDTO){
+    //     const newPrinter = await this.printerModel.findOne()
+    // }
 }

@@ -9,26 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReportSchema = exports.Report = void 0;
+exports.StudentReportSchema = exports.StudentReport = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
-let Report = class Report extends mongoose_2.Document {
+const report_schema_1 = require("./report.schema");
+let StudentReport = class StudentReport extends report_schema_1.Report {
 };
-exports.Report = Report;
-__decorate([
-    (0, mongoose_1.Prop)({ required: true }),
-    __metadata("design:type", String)
-], Report.prototype, "reportType", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", Date)
-], Report.prototype, "date", void 0);
+exports.StudentReport = StudentReport;
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Report.prototype, "content", void 0);
-exports.Report = Report = __decorate([
-    (0, mongoose_1.Schema)({ discriminatorKey: 'reportType' })
-], Report);
-exports.ReportSchema = mongoose_1.SchemaFactory.createForClass(Report);
-//# sourceMappingURL=report.schema.js.map
+], StudentReport.prototype, "studentID", void 0);
+exports.StudentReport = StudentReport = __decorate([
+    (0, mongoose_1.Schema)()
+], StudentReport);
+exports.StudentReportSchema = mongoose_1.SchemaFactory.createForClass(StudentReport);
+//# sourceMappingURL=student-report.shema.js.map
