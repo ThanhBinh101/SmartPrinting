@@ -22,13 +22,33 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "/studentHomepage",
+        element: <HomePage/>
+      },
+      {
         path: "/upload",
         element: <UploadPage />,
       },
       {
         path: "/purchase",
         element: <PurchasePage/>
-      }
+      },
+      {
+        path: "/adminHomepage",
+        element: <AdminHomepage/>
+      },
+      {
+        path: "/adminReport",
+        element: <AdminViewReport/>
+      },
+      {
+        path: "/officerHomePage",
+        element: <OfficerHomepage/>
+      },
+      {
+        path: "/officerReport",
+        element: <OfficerReport/>
+      },
     ],
   },
 ]);

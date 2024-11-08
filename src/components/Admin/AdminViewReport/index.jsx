@@ -6,6 +6,7 @@ import ViewStudentReport from "../AdminViewReport/StudentReport";
 import ViewOfficerReport from "../AdminViewReport/OfficerReport"; 
 import StudentExport from "../../PopUp/StudentReportExport";
 import PrinterExport from "../../PopUp/PrinterReportExport";
+import { useNavigate} from "react-router-dom";
 
 const ViewReport = () => {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -41,7 +42,7 @@ const ViewReport = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen"> 
+    <div className="flex flex-col"> 
       <div className="flex items-center justify-center mt-[30px]">
         <span className="font-Ubuntu font-medium text-[36px]">Report</span>
       </div>

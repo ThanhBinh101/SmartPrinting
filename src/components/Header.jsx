@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="flex justify-between bg-primary px-10 py-3">
         <div className="aspect-square w-[60px]">
-          <Link to={"/"}>
+          <Link onClick={ () => navigate(-1)}>
             <img src="/logo-school.png" alt="" />
           </Link>
         </div>
@@ -13,8 +14,10 @@ const Header = () => {
           <img src="/user-logo.svg" alt="" />
         </div>
       </div>
-      {/* Chỉnh sửa sau */}
-      <div className="h-14 bg-secondary"></div>
+      {/* Chỉnh sửa sau: nao ranh lam cai navigation bar */}
+      <div className="h-14 bg-secondary">
+          
+      </div>
     </div>
   );
 };

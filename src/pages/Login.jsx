@@ -4,10 +4,10 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 function Login() {
 
-    const navigate = useNavigate(); // Get the navigate function
+    const navigate = useNavigate();
 
     function onClickButton() {
-        navigate("/studentpage"); // Use navigate to go to the new page
+        navigate("/studentHomepage");
     }
 
   return (
