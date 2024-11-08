@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <AdminViewReport />,
+        element: <OfficerReport />,
       },
       {
         path: "/upload",
