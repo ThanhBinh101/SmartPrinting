@@ -1,20 +1,21 @@
-import { BUTTON_VIEW_REPORT } from "../../../libs/constant";
+import { BUTTON_TURNOFF_PRINTER } from "../../../libs/constant";
 import Button from "../../Button";
 
-const PrinterViewReportButton = () => {
+const TurnOffPrinterButton = ({onClick}) => {
   return (
     <div className="flex justify-between bg-[#A68BC1]" >
-      {BUTTON_VIEW_REPORT.map((button) => (
+      {BUTTON_TURNOFF_PRINTER.map((button) => (
         <Button
           key={button.title}
           title={button.title}
           textColor={button.textColor}
           backgroundColor={'button.backgroundColor'}
           width={"60"}
+          onClick={onClick}
         />
       ))}
     </div>
   );
 };
 
-export default PrinterViewReportButton;
+export default TurnOffPrinterButton;

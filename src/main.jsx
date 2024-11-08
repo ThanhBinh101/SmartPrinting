@@ -4,7 +4,6 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import OfficerHomepage from "./pages/OfficerHomepage.jsx"
 import AdminHomepage from "./pages/AdminHomepage.jsx"
-import OfficerManagement from "./pages/OfficerManagement.jsx"
 import UploadPage from "./pages/UploadPage.jsx";
 import AdminViewReport from "./pages/AdminViewReport.jsx";
 import RootLayout from "./components/RootLayout.jsx";

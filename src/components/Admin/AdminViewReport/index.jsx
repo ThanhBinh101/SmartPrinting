@@ -4,13 +4,16 @@ import OfficerButton from "../AdminViewReport/ChooseOfficerButton";
 import StudentButton from "../AdminViewReport/ChooseStudentButton";
 import ViewStudentReport from "../AdminViewReport/StudentReport"; 
 import ViewOfficerReport from "../AdminViewReport/OfficerReport"; 
+import StudentExport from "../../PopUp/StudentReportExport";
+import PrinterExport from "../../PopUp/PrinterReportExport";
 
 const ViewReport = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [studentID, setStudentID] = useState("");
-
+  const [exportModalShow, setExportModalShow] = useState(false);
+  
   const handleButtonClick = (buttonType) => {
     setSelectedButton(buttonType); 
   };
@@ -38,7 +41,7 @@ const ViewReport = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen"> 
       <div className="flex items-center justify-center mt-[30px]">
         <span className="font-Ubuntu font-medium text-[36px]">Report</span>
       </div>
@@ -93,11 +96,18 @@ const ViewReport = () => {
           className="border bg-[#A68BC133] border-[#A68BC1] rounded-[16px] p-2 w-[180px] h-[48px] ml-[10px]"
         />
         <div className="ml-[50px]">
-          <ExportButton />
+          <ExportButton onClick={() => setExportModalShow(true)} />
         </div>
       </div>
 
-      <div className="mt-[30px]">
+      {selectedButton === "student" && (
+        <StudentExport show={exportModalShow} onClose={() => setExportModalShow(false)} />
+      )}
+      {selectedButton === "officer" && (
+        <PrinterExport show={exportModalShow} onClose={() => setExportModalShow(false)} />
+      )}
+
+      <div className="mt-[30px] flex-grow"> 
         {selectedButton === "student" && <ViewStudentReport />}
         {selectedButton === "officer" && <ViewOfficerReport />}
       </div>

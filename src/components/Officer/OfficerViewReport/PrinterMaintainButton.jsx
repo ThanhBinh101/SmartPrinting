@@ -1,7 +1,7 @@
 import { BUTTON_MAINTAIN } from "../../../libs/constant";
 import Button from "../../Button";
 
-const PrinterMaintainButton = () => {
+const PrinterMaintainButton = ({onClick}) => {
   return (
     <div className="flex justify-between text-[#957DAD]">
       {BUTTON_MAINTAIN.map((button) => (
@@ -11,6 +11,7 @@ const PrinterMaintainButton = () => {
           textColor={button.textColor}
           backgroundColor={'button.backgroundColor'}
           width={"60"}
+          onClick={onClick}
         />
       ))}
     </div>

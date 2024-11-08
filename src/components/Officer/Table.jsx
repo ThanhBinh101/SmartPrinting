@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Table = ({ title, tableCol, tableRow, bgColor, titleColor, rowTextColor, maxHeight }) => {
+const Table = ({ title, tableCol, tableRow, bgColor, titleColor, rowTextColor, maxHeight, colWidths }) => {
   return (
     <div>
       <div className="text-[32px] font-inter font-medium mb-[3px]" style={{ color: titleColor }}>
@@ -15,6 +15,7 @@ const Table = ({ title, tableCol, tableRow, bgColor, titleColor, rowTextColor, m
                   <th
                     className={`p-4 ${index + 1 === tableCol.length ? "" : "border-r-[2px] border-secondary"}`}
                     key={item}
+                    style={{ width: colWidths ? colWidths[index] : "auto" }}
                   >
                     {item}
                   </th>
