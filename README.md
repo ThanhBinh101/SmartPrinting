@@ -154,11 +154,26 @@ dien vao day
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-### Tài khoản để sử dụng ứng dụng
-
-
 ### Nhóm chức năng của sinh viên
+1. **Đăng nhập**: Sinh viên cần đăng nhập vào hệ thống bằng mã số sinh viên (MSSV) để thực hiện các chức năng in ấn.
+2. **Duyệt danh sách máy in**: Xem danh sách các máy in có sẵn để in tài liệu.
+3. **Chọn máy in**: Quyền chọn máy in để thực hiện in ấn.
+4. **Tải tài liệu lên**: Upload tài liệu cần in lên hệ thống.
+5. **Chỉnh sửa thuộc tính in**: Thay đổi kích thước giấy, số trang, chế độ in (một mặt/hai mặt) và số bản in.
+6. **Xem lịch sử in**: Kiểm tra lịch sử in ấn cá nhân.
+7. **Mua giấy**: Mua thêm giấy thông qua hệ thống thanh toán trực tuyến.
+8. **Nhận thông báo**: Nhận thông báo khi tài liệu đã được in xong.
+9. **Xem số lượng giấy còn lại**: Kiểm tra số lượng giấy hiện có trong tài khoản.
+
+### Nhóm chức năng của admin
+1. **Đăng nhập**: Admin đăng nhập vào hệ thống để quản lý các chức năng.
+2. **Quản lý máy in**: Thêm, xóa, và chỉnh sửa thông tin các máy in trong hệ thống.
+3. **Quản lý sinh viên**: Xem danh sách sinh viên sử dụng dịch vụ in ấn.
+4. **Quản lý nhân viên**: Xem và phân công các nhân viên quản lý máy in.
+5. **Xem báo cáo**: Kiểm tra báo cáo lịch sử in ấn và tình trạng máy in trong toàn bộ hệ thống.
+6. **Điều chỉnh chính sách in**: Thay đổi số lượng giấy cấp cho sinh viên mỗi kỳ và thay đổi ngày cấp giấy.
+7. **Quản lý loại file**: Thay đổi các định dạng file được phép upload vào hệ thống.
+8. **Giám sát hoạt động**: Theo dõi tất cả hoạt động in ấn và thanh toán trong hệ thống để đảm bảo tính minh bạch.
 
 
 
