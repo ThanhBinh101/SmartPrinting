@@ -84,11 +84,12 @@ Thành viên phát triển dự án:
 ### Công nghệ sử dụng
 <a id="built-with"></a>
 
-- [NodeJS]()
-- [HTML]()
-- [CSS]()
-- [NestJS]()
-- []()
+- [NodeJS](https://nodejs.org/en)
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [NestJS](https://nestjs.com/)
+- [ReactJS](https://react.dev/)
+- [Taiwind CSS](https://tailwindcss.com/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
