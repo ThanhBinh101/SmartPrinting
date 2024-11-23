@@ -85,10 +85,10 @@ Thành viên phát triển dự án:
 <a id="built-with"></a>
 
 - [NodeJS]()
+- [HTML]()
+- [CSS]()
+- [NestJS]()
 - []()
-- []()
-- []()
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
