@@ -84,7 +84,7 @@ Thành viên phát triển dự án:
 ### Công nghệ sử dụng
 <a id="built-with"></a>
 
-- []()
+- [NodeJS]()
 - []()
 - []()
 - []()
