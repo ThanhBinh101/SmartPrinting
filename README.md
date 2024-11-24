@@ -113,7 +113,7 @@ Trước khi sử dụng ứng dụng, bạn cần cài đặt trước một s�
 
 Vì ứng dụng chưa được triển khai tên miền, bạn có thể sử dụng nó bằng localhost với các bước sau:
 
-1. Truy cập đường dẫn []().
+1. Truy cập đường dẫn [https://github.com/ThanhBinh101/SmartPrinting/edit/main](https://github.com/ThanhBinh101/SmartPrinting/edit/main).
 
 2. Tải về source code và giải nén, lưu vào nơi bạn muốn
 
@@ -124,22 +124,9 @@ Vì ứng dụng chưa được triển khai tên miền, bạn có thể sử d
 5. Tại thư mục gốc, chạy các lệnh sau để khởi động chương trình phía client (giao diện ứng dụng sẽ tự động hiển thị sau bước này)
 
 ```bash
-dien vao day
+npm i
 ```
 
-6. xxx
-
-```properties
-dien vao day
-```
-
-7. Tại thư mục gốc, chạy các lệnh sau để khởi động chương trình phía server
-
-```bash
-dien vao day
-```
-
-8. 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
