@@ -72,11 +72,11 @@
 
 Thành viên phát triển dự án:
 
-- NGUYỄN THỊ THANH BÌNH - 
-- NGUYỄN THIÊN HẢI - 
-- NGUYỄN TRẦN MINH ANH - 
-- NGUYỄN TUẤN ANH - 
-- NGUYỄN XUÂN LỘC - 
+- NGUYỄN THỊ THANH BÌNH
+- NGUYỄN THIÊN HẢI
+- NGUYỄN TRẦN MINH ANH
+- NGUYỄN TUẤN ANH 
+- NGUYỄN XUÂN LỘC 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
