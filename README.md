@@ -87,7 +87,7 @@ Thành viên phát triển dự án:
 - [NodeJS](https://nodejs.org/en)
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [NestJS](https://nestjs.com/)
+- [Express.js ](https://expressjs.com/)
 - [ReactJS](https://react.dev/)
 - [Taiwind CSS](https://tailwindcss.com/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -115,17 +115,36 @@ Vì ứng dụng chưa được triển khai tên miền, bạn có thể sử d
 
 1. Truy cập đường dẫn [https://github.com/ThanhBinh101/SmartPrinting/edit/main](https://github.com/ThanhBinh101/SmartPrinting/edit/main).
 
-2. Tải về source code và giải nén, lưu vào nơi bạn muốn
+2. Tải về source code và giải nén, lưu vào nơi bạn muốn.
 
-3. Mở một chương trình shell (Command Prompt, Powershell, Bash...) 
+3. Mở một chương trình shell (Command Prompt, Powershell, Bash...).
 
-4. Thay đổi đường dẫn tới thư mục của ứng dụng (hcmut-ssps) bằng lệnh `cd <dir>`
+4. Thay đổi đường dẫn tới thư mục của ứng dụng bằng lệnh `cd <dir>`.
 
-5. Tại thư mục gốc, chạy các lệnh sau để khởi động chương trình phía client (giao diện ứng dụng sẽ tự động hiển thị sau bước này)
+5. Tại thư mục gốc, mở hai terminal:
 
-```bash
-npm i
-```
+   - **Terminal 1**: 
+     - Chạy lệnh sau để vào thư mục backend:
+       ```bash
+       cd SmartPrinting/backend
+       ```
+     - Sau đó, gõ:
+       ```bash
+       node index.js
+       ```
+
+   - **Terminal 2**: 
+     - Chạy lệnh sau để vào thư mục frontend:
+       ```bash
+       cd SmartPrinting/frontend
+       ```
+     - Sau đó, gõ:
+       ```bash
+       npm run dev
+       ```
+
+6. Truy cập vào địa chỉ `http://localhost:5173` để trải nghiệm ứng dụng.
+
 
 
 
