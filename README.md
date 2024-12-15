@@ -128,15 +128,23 @@ Vì ứng dụng chưa được triển khai tên miền, bạn có thể sử d
        ```bash
        cd SmartPrinting/backend
        ```
+     - Cài đặt các thư viện cần thiết:
+       ```bash
+       npm i
+       ```
      - Sau đó, gõ:
        ```bash
-       node index.js
+       npm start
        ```
 
    - **Terminal 2**: 
      - Chạy lệnh sau để vào thư mục frontend:
        ```bash
        cd SmartPrinting/frontend
+       ```
+     - Cài đặt các thư viện cần thiết:
+       ```bash
+       npm i
        ```
      - Sau đó, gõ:
        ```bash
